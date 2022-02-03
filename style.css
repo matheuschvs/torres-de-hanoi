@@ -1,3 +1,12 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: #222;
+  color: #ddd;
+}
+
 header {
   margin: 2rem auto;
 }
@@ -5,6 +14,49 @@ header {
 header h1 {
   font-size: 2rem;
   text-align: center;
+  color: #FFF;
+}
+
+.actions, .info {
+  text-align: center;
+  padding: 1rem;
+}
+
+.actions select {
+  background: rgba(150, 150, 80, 0.2);
+  border: none;
+  border-radius: 0.3rem;
+  color: #FFF;
+  padding: 0.25rem;
+}
+
+.actions select option {
+  background: #000;
+}
+
+.actions button {
+  margin-left: 0.5rem;
+  padding: 0.25rem 0.5rem;
+  background: transparent;
+  border: none;
+  color: #AA5;
+  border-bottom: 1px solid #FFF;
+}
+
+.info .display {
+  font-size: 1.2rem;
+  color: aquamarine;
+}
+
+.info .counter-wrapper {
+  margin-top: 0.5rem;
+}
+
+.disc-holder {
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .towers {
@@ -14,16 +66,14 @@ header h1 {
 .tower {
   height: 15rem;
   width: 12.5rem;
-  background: red;
   margin: 0 auto;
   display: flex;
   flex-direction: column-reverse;
   align-items: center;
   cursor: pointer;
-}
-
-.tower:hover {
-  box-shadow: 0 0 5px 5px #ccc;
+  box-shadow: 0 0 2px 2px #555;
+  background: rgb(2,255,235);
+  background: linear-gradient(180deg, rgba(2,255,235,0.1) 0%, rgba(10,178,232,1) 26%, rgba(24,121,228,1) 65%, rgba(36,43,224,1) 100%);  
 }
 
 .tower + .tower {
@@ -32,5 +82,6 @@ header h1 {
 
 .disc {
   height: 1.5rem;
-  background: blue;
+  border-radius: 0.3rem;
+  border: 1px solid #000;
 }

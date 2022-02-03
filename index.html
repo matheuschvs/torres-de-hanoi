@@ -15,7 +15,33 @@
     <h1>Torres de Hanoi</h1>
   </header>
 
-  <section class="towers">
+  <section class="actions">
+    <label for="levelSelector">dificuldade:
+      <select id="levelSelector">
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+      </select>
+    </label>
+    <button id="startGameBtn">Novo jogo</button>
+  </section>
+
+  <section class="info">
+    <h2 id="display" class="display">Pronto para iniciar!</h2>
+    <p class="counter-wrapper">Peças movidas:
+      <span id="counter" class="counter">0</span>
+    </p>
+  </section>
+
+  <ul id="discHolder" class="disc-holder">
+  </ul>
+
+  <section id="towers" class="towers">
     <ul id="firstTower" class="tower"></ul>
     <ul id="secondTower" class="tower"></ul>
     <ul id="thirdTower" class="tower"></ul>
