@@ -26,9 +26,10 @@ function handleStartGame() {
 function resetGame() {
   const discHolder = document.querySelector('#discHolder')
   discHolder.innerHTML = ''
-
-  counter = 0
   currentDisc = null
+
+  setCounter(0)
+
   step = 'PICK'
   towers.forEach(tower => tower.innerHTML = '')
 }
@@ -77,7 +78,7 @@ function handleTowerClick(event) {
     }
 
     discHolder.appendChild(currentDisc)
-    increaseCounter()
+    setCounter(counter + 1)
     displayMessage('Disco selecionado, selecione torre para inserir.')
   } else {
     if (checkIfCanPutDisk()) {
@@ -112,10 +113,10 @@ function toggleStep(currentStep) {
   step = currentStep === 'PICK' ? 'PUT' : 'PICK'
 }
 
-function increaseCounter() {
+function setCounter(newCounter) {
   const counterDisplay = document.querySelector('#counter')
 
-  counter += 1
+  counter = newCounter
   counterDisplay.innerText = `${counter}`
 }
 
