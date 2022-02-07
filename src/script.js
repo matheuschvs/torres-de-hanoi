@@ -5,8 +5,8 @@ let currentDisc
 let gameStarted = false
 let counter = 0
 
-const towers = document.querySelectorAll('#towers ul')
-towers.forEach(tower => tower.addEventListener('click', handleTowerClick))
+const towersContainer = document.querySelector('#towers')
+const towers = createTowers()
 
 const startGameBtn = document.querySelector('#startGameBtn')
 startGameBtn.addEventListener('click', handleStartGame)
@@ -34,17 +34,32 @@ function resetGame() {
   towers.forEach(tower => tower.innerHTML = '')
 }
 
+function createTowers() {
+  const towers = []
+
+  for (let i = 0; i < 3; i += 1) {
+    const tower = document.createElement('ul')
+    tower.className = 'tower'
+    tower.addEventListener('click', handleTowerClick)
+
+    towers.push(tower)
+
+    towersContainer.appendChild(tower)
+  }
+
+  return towers
+}
+
 function createDiscs(level, firstTower) {
   for (let discNumber = level; discNumber >= 1; discNumber -= 1) {
-    const disc = createDisc(discNumber, level)
+    const disc = createDisc(discNumber, level, firstTower)
 
     insertDisc(disc, firstTower)
   }
 }
 
-function createDisc(discNumber, level) {
+function createDisc(discNumber, level, tower) {
   const disc = document.createElement('li')
-  const tower = document.querySelector('#towers ul')
   const width = discNumber * (tower.offsetWidth / level)
 
   disc.id = `disc${discNumber}`
